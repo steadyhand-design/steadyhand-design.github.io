@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Steadyhand — Senior product design for SaaS teams</title>
+<meta name="description" content="A 5-day UX Audit Sprint, then a monthly senior product design partner. Fixed price, async, cancel anytime.">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14161a;--sub:#5b616b;--line:#e4e6ea;--bg:#fafaf8;--card:#fff;--acc:#1f5eff;--acc2:#e8eeff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-weight:700;letter-spacing:-.02em;font-size:18px}
+.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:500;border:0;cursor:pointer;font:500 15px Roboto}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+header{padding:72px 0 56px}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.08;letter-spacing:-.03em;max-width:780px}
+.lede{font-size:19px;color:var(--sub);max-width:640px;margin:20px 0 32px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:28px;letter-spacing:-.02em;margin-bottom:8px}
+.sub{color:var(--sub);margin-bottom:32px;max-width:640px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+.card h3{font-size:17px;margin-bottom:6px}
+.price{font-size:34px;font-weight:700;letter-spacing:-.02em;margin:12px 0 4px}
+.price small{font-size:15px;color:var(--sub);font-weight:400}
+.card ul{list-style:none;margin:16px 0 20px}
+.card li{padding:6px 0;border-top:1px solid var(--line);font-size:15px}
+.card.feat{border:2px solid var(--acc)}
+.tag{display:inline-block;background:var(--acc2);color:var(--acc);font-size:12px;font-weight:500;padding:3px 8px;border-radius:4px}
+.steps{counter-reset:s}
+.steps .card h3::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--acc2);color:var(--acc);font-size:13px;margin-right:10px}
+form{display:grid;gap:14px;max-width:560px}
+label{font-size:14px;font-weight:500;display:grid;gap:6px}
+input,select,textarea{font:400 15px Roboto;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+.note{font-size:13px;color:var(--sub)}
+details{border-top:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:500}
+details p{color:var(--sub);margin-top:8px}
+footer{padding:40px 0;color:var(--sub);font-size:13px;border-top:1px solid var(--line)}
+#ok{display:none;background:var(--acc2);padding:16px;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><span class="logo">Steadyhand</span><a class="btn ghost" href="#start">Book an audit</a></nav>
+
+<header>
+<span class="tag">Founding-client pricing for the first 3 subscriptions</span>
+<h1 style="margin-top:16px">Senior product design for SaaS teams, without hiring.</h1>
+<p class="lede">Start with a 5-day UX Audit Sprint that finds where your product loses users. Keep going with a monthly design partner who ships the fixes. 14 years of product design behind every deliverable.</p>
+<div class="row"><a class="btn" href="#start">Start a $490 audit</a><a class="btn ghost" href="sample-audit-plausible.html">Read a sample teardown</a></div>
+</header>
+
+<section>
+<h2>See the format before you buy</h2>
+<p class="sub">An unsolicited teardown of Plausible Analytics' homepage and pricing: 10 ranked findings and interactive redesign concepts for the top 3. It's exactly what a paid audit looks like, minus the logged-in journey.</p>
+<a class="btn ghost" href="sample-audit-plausible.html">Open the sample teardown →</a>
+</section>
+
+<section>
+<h2>How it works</h2>
+<p class="sub">Async by default. No retainers you can't leave, no hourly invoices.</p>
+<div class="grid steps">
+<div class="card"><h3>Share access</h3><p class="note">Send a product link or Figma file and the one metric you care about: activation, trial-to-paid, retention.</p></div>
+<div class="card"><h3>Get the audit</h3><p class="note">In 5 business days: a prioritised list of UX issues, annotated screens, and redesigned mockups for the top 3 fixes.</p></div>
+<div class="card"><h3>Ship the fixes</h3><p class="note">Continue on a monthly plan. Request designs in a shared board; most requests come back in 2–3 business days.</p></div>
+</div>
+</section>
+
+<section id="pricing">
+<h2>Pricing</h2>
+<p class="sub">Prices in USD. Pause or cancel a subscription any time before the next billing date.</p>
+<div class="grid">
+<div class="card"><h3>UX Audit Sprint</h3><div class="price">$490 <small>one-time</small></div>
+<ul><li>Heuristic + flow audit of one core journey</li><li>Annotated issue report, ranked by impact</li><li>Redesigned mockups for the top 3 issues</li><li>Delivered in 5 business days</li></ul>
+<a class="btn ghost" href="#start">Book an audit</a></div>
+<div class="card feat"><h3>Design Partner</h3><div class="price">$1,990 <small>/ month</small></div>
+<ul><li>One active request at a time</li><li>Product UI, flows, design-system work</li><li>Figma files, dev-ready specs</li><li>Audit fee credited if you start within 14 days</li></ul>
+<a class="btn" href="#start">Start a subscription</a></div>
+<div class="card"><h3>Design Partner Plus</h3><div class="price">$3,490 <small>/ month</small></div>
+<ul><li>Two active requests at a time</li><li>Everything in Design Partner</li><li>Weekly 30-min async video review</li><li>Priority turnaround</li></ul>
+<a class="btn ghost" href="#start">Start a subscription</a></div>
+</div>
+</section>
+
+<section id="start">
+<h2>Book your audit</h2>
+<p class="sub">Tell us about your product. You'll get a reply within one business day with a payment link and an intake form.</p>
+<form id="lead">
+<label>Work email<input type="email" name="email" required autocomplete="email"></label>
+<label>Product URL<input type="url" name="url" required placeholder="https://"></label>
+<label>What do you want to start with?
+<select name="plan"><option>UX Audit Sprint — $490</option><option>Design Partner — $1,990/mo</option><option>Design Partner Plus — $3,490/mo</option><option>Not sure yet</option></select></label>
+<label>The metric you most want to move<textarea name="goal" rows="3" placeholder="e.g. trial-to-paid is 4%, want 6%"></textarea></label>
+<button class="btn" type="submit">Request an audit</button>
+<p class="note">We use these details only to reply to you. No newsletter, no sharing.</p>
+<div id="ok">Thanks — your request is in. Expect a reply within one business day.</div>
+</form>
+</section>
+
+<section>
+<h2>Questions</h2>
+<details><summary>Who does the design work?</summary><p>A senior product designer with 14 years of UX and product experience leads every engagement and reviews every deliverable.</p></details>
+<details><summary>What if the audit isn't useful?</summary><p>If the audit doesn't surface at least 10 actionable issues, you get a full refund.</p></details>
+<details><summary>Do you build the code?</summary><p>No. You get Figma files and dev-ready specs your engineers can implement.</p></details>
+<details><summary>How do I pay?</summary><p>By international card or bank transfer through an invoice link. Invoices are issued as an export of services from India.</p></details>
+</section>
+
+<footer>© 2026 Steadyhand (working name). Based in Delhi NCR, India. Serving teams worldwide.</footer>
+</div>
+<script>
+// Lead capture → Steadyhand Ops Pipeline (Google Apps Script web app). text/plain + no-cors avoids a CORS preflight Apps Script can't answer.
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbwyCzOCf9mL5t4DdAKH0Jt8g3fXbYsd7OZmvIHUjebKf9ICY4Jm5QysFzwJ27oy0pQNaA/exec";
+document.getElementById('lead').addEventListener('submit', async e => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
+  try { await fetch(ENDPOINT, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(data)}); } catch(_){}
+  e.target.querySelectorAll('input,select,textarea,button').forEach(el => el.disabled = true);
+  document.getElementById('ok').style.display = 'block';
+});
+</script>
+</body>
+</html>

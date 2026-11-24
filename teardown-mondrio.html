@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UX Teardown — Mondrio homepage · Steadyhand</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#15171b;--sub:#5f6570;--line:#e3e5e9;--bg:#fafaf8;--acc:#1f5eff;--hi:#c2362b;--md:#b26a00;--lo:#11845b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+.wrap{max-width:900px;margin:0 auto;padding:48px 24px}
+h1{font-size:34px;letter-spacing:-.02em;line-height:1.15}
+h2{font-size:22px;margin:48px 0 12px;letter-spacing:-.01em}
+h3{font-size:16px;margin-bottom:4px}
+.sub{color:var(--sub)}
+.meta{display:flex;gap:24px;flex-wrap:wrap;margin:20px 0;font-size:13px;color:var(--sub)}
+.box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;margin:12px 0}
+.issue{display:grid;grid-template-columns:44px 1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin:10px 0}
+.num{font-weight:700;font-size:18px;color:var(--sub)}
+.sev{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:999px;border:1px solid;margin-left:6px;vertical-align:2px}
+.h{color:var(--hi);border-color:#f0b7b1}.m{color:var(--md);border-color:#f0d39c}.l{color:var(--lo);border-color:#a8dcc6}
+.fix{margin-top:6px}.fix b{font-weight:500}
+.ver{font-size:12px;color:var(--sub);margin-top:4px}
+.mock{border:1px dashed #b9c3d6;border-radius:12px;padding:20px;background:#fff;margin:14px 0}
+.mlabel{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);font-weight:500;margin-bottom:12px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ba>div{border:1px solid var(--line);border-radius:8px;padding:14px}
+.ba small{font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:.05em}
+.hero-h{font-size:22px;font-weight:700;line-height:1.2;margin:6px 0}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tier{border:1px solid var(--line);border-radius:8px;padding:14px}
+.tier.rec{border:2px solid var(--acc)}
+.tp{font-size:24px;font-weight:700}.tp span{font-size:13px;font-weight:400;color:var(--sub)}
+.save{font-size:12px;color:var(--lo)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:12px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:500 13px Roboto;cursor:pointer}
+.seg button.on{background:var(--ink);color:#fff}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.chips button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:6px 10px;font:400 13px Roboto;cursor:pointer}
+.chips button.on{border-color:var(--acc);color:var(--acc);font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px;border-bottom:1px solid var(--line);text-align:center}
+th:first-child,td:first-child{text-align:left}
+.cta{display:inline-block;background:var(--acc);color:#fff;border-radius:6px;padding:8px 12px;font-size:13px;font-weight:500;margin-top:10px}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+@media(max-width:700px){.ba,.tiers{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="sub">Steadyhand · Unsolicited UX teardown · Prepared for the Mondrio team</p>
+<h1>Mondrio: the hero sells the model, but buyers still can't see what the agents do</h1>
+<div class="meta"><span>Scope: mondrio.io homepage (public)</span><span>Reviewed: 23 Nov 2026</span><span>Method: heuristic review through a VP Revenue / Head of Pricing buyer's eyes</span></div>
+<div class="box"><b>Summary.</b> Congratulations on the Heartcore round. The page has rare assets for a seed company: named logos, a G2 review, SOC 2 Type II, real expert faces, and a crisp two-module story (Pricing Studio + Deal Engine). The friction is in what a revenue leader must believe before booking: <b>what an agent is allowed to change</b>, <b>what the free pricing scan actually is</b>, and <b>where the numbers come from</b>. Below are 8 findings ranked by expected effect on scan requests, with concepts for the top 3.
+<p class="ver" style="margin-top:10px">Not affiliated with Mondrio. Based on the public homepage as of the review date. Items marked “verify visually” should be confirmed at desktop and mobile widths.</p></div>
+
+<h2>Findings, ranked by impact</h2>
+<div class="issue"><div class="num">01</div><div><h3>The primary CTA doesn't say what you get<span class="sev h">High</span></h3>
+<p>“Free pricing scan” is the main conversion action (nav, hero, closing section), but nowhere on the page says what data it needs, how long it takes, who does it, or what comes back. The closing line “Bring your price list, leave with the first moves” is the best description, and it only appears at the bottom.</p>
+<p class="fix"><b>Fix:</b> A three-part explainer next to every scan CTA (You send / We do / You get, plus a time) and move that closing line into the hero. See Concept B.</p></div></div>
+<div class="issue"><div class="num">02</div><div><h3>Agent authority is undefined, and it's the core risk a buyer weighs<span class="sev h">High</span></h3>
+<p>“Agents run the routine pricing work” and “you approve moves” are central, but the page never shows which actions agents take alone, which need approval, and which only experts touch. For anyone accountable for revenue, an unbounded “agent” sounds like a risk.</p>
+<p class="fix"><b>Fix:</b> A responsibility matrix covering agents, experts and your team, with the approval step shown. See Concept C.</p></div></div>
+<div class="issue"><div class="num">03</div><div><h3>Headline stats have no source<span class="sev h">High</span></h3>
+<p>“50%+ changed pricing last quarter”, “1% price → 8% operating profit”, “75% lack a central pricing capability”, “10× typical first-year return” and “150+ companies optimized” all appear with no source, date or definition. Pricing leaders are exactly the audience trained to ask “10× of what, versus what baseline?”</p>
+<p class="fix"><b>Fix:</b> Footnote each figure (study + year). Define “return” (e.g. incremental gross profit ÷ fees) and state the sample behind the 10×.</p></div></div>
+<div class="issue"><div class="num">04</div><div><h3>“Managed” is ambiguous in the hero<span class="sev m">Medium</span></h3>
+<p>“Pricing managed by agents and experts” could mean strategy, quoting, renewals or all of these. The two modules answer it, but only two sections lower.</p>
+<p class="fix"><b>Fix:</b> Name the scope in the subheadline. See Concept A.</p></div></div>
+<div class="issue"><div class="num">05</div><div><h3>Two competing hero CTAs, and no demo path<span class="sev m">Medium</span></h3>
+<p>“Free pricing scan” and “See the use cases” pull in different directions, and a buyer ready to evaluate the software has no “see the product” route. The page also shows no product UI.</p>
+<p class="fix"><b>Fix:</b> Keep the scan as primary; make the secondary “See the product (2-min tour)” with a real Pricing Studio screenshot or loop.</p></div></div>
+<div class="issue"><div class="num">06</div><div><h3>Case study has no outcome<span class="sev m">Medium</span></h3>
+<p>The anonymized case describes the method (WTP testing, 12 AI personas, Good/Better/Best and a migration plan) but no result. Method without outcome reads as a capability list.</p>
+<p class="fix"><b>Fix:</b> Add one before/after number, even as a range (“ARPA +x–y% in 90 days”), plus company size and industry.</p></div></div>
+<div class="issue"><div class="num">07</div><div><h3>Engagement options lack a price signal<span class="sev m">Medium</span></h3>
+<p>“Supercharge your team” and “Let Mondrio handle it” are clear models, but with no cost indication or minimum, buyers can't self-qualify, and that tends to lower scan quality.</p>
+<p class="fix"><b>Fix:</b> A “from” figure or typical range per option, or a line on how pricing works (platform fee + expert hours, say).</p></div></div>
+<div class="issue"><div class="num">08</div><div><h3>The integration graphic implies data flow it doesn't explain<span class="sev l">Low</span></h3>
+<p>Mondrio sits between Salesforce/HubSpot and Chargebee/Zuora in the journey graphic. Buyers will ask whether it reads, writes back, or both.</p>
+<p class="fix"><b>Fix:</b> Arrow labels (“reads deals”, “pushes approved prices”) and a link to the integration docs.</p></div></div>
+
+<h2>Concepts for the top 3 fixes</h2>
+<div class="mock"><div class="mlabel">Concept A — Hero with scope and an outcome (Findings 04, 05)</div>
+<div class="ba"><div><small>Current</small><div class="hero-h">Pricing managed by agents and experts.</div><p class="sub" style="font-size:13px">Agents run the routine pricing work. Senior pricing experts step in when the stakes are high.</p></div>
+<div><small>Proposed</small><div class="hero-h">Pricing managed by agents and experts.</div><p class="sub" style="font-size:13px">From packaging and price levels to every quote and renewal. Agents do the routine work, senior experts handle the big moves, and nothing ships without your approval.</p><span class="cta">Get a free pricing scan</span> <span class="sub" style="font-size:12px;margin-left:8px">Bring your price list, leave with your first moves.</span></div></div></div>
+
+<div class="mock"><div class="mlabel">Concept B — What the free pricing scan is (Finding 01)</div>
+<div class="tiers">
+<div class="tier"><b>You send</b><p class="sub" style="font-size:13px;margin-top:6px">Your current price list and plan structure. Optional: last 12 months of deal data.</p></div>
+<div class="tier rec"><b>We analyze</b><p class="sub" style="font-size:13px;margin-top:6px">A pricing expert and our agents benchmark your packaging, price levels and discount patterns.</p></div>
+<div class="tier"><b>You get</b><p class="sub" style="font-size:13px;margin-top:6px">A 30-minute call with your top 3 pricing moves and their estimated impact. Typically within [X] business days.</p></div></div>
+<p class="ver" style="margin-top:8px">Bracketed values are placeholders for Mondrio's real process.</p></div>
+
+<div class="mock"><div class="mlabel">Concept C — Who does what (Finding 02)</div>
+<table><tr><th>Activity</th><th>Agents</th><th>Pricing experts</th><th>Your team</th></tr>
+<tr><td>Monitor deals, competitors, win/loss signals</td><td>✓ continuous</td><td>—</td><td>Sees dashboard</td></tr>
+<tr><td>Quote within approved guardrails</td><td>✓ auto-price</td><td>—</td><td>Rep sends</td></tr>
+<tr><td>Quote outside guardrails</td><td>Flags + recommends</td><td>Reviews if strategic</td><td><b>Approves</b></td></tr>
+<tr><td>New price model / migration</td><td>Research + simulation</td><td>✓ designs</td><td><b>Approves</b></td></tr>
+<tr><td>Change list prices or guardrails</td><td>Proposes</td><td>Validates</td><td><b>Approves</b></td></tr>
+</table><p class="ver" style="margin-top:8px">Illustrative split based on the homepage's own descriptions; Mondrio would fill in its actual permissions.</p></div>
+
+<h2>Suggested next step</h2>
+<div class="box">Concept B is the cheapest test with the most direct link to pipeline: add the explainer beside the hero CTA and measure scan requests per visitor for two weeks. Concept C can live on the Deal Engine page and be linked from the hero.</div>
+<footer>Prepared by Steadyhand, senior product design for SaaS teams. This is a free sample of the $490 UX Audit Sprint. A paid audit covers one logged-in journey (e.g. scan request → first recommendation), annotated screenshots and Figma files for the top 3 fixes.</footer>
+</div>
+</body>
+</html>

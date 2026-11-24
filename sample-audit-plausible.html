@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UX Teardown — Plausible Analytics homepage & pricing · Steadyhand</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#15171b;--sub:#5f6570;--line:#e3e5e9;--bg:#fafaf8;--acc:#1f5eff;--hi:#c2362b;--md:#b26a00;--lo:#11845b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+.wrap{max-width:900px;margin:0 auto;padding:48px 24px}
+h1{font-size:34px;letter-spacing:-.02em;line-height:1.15}
+h2{font-size:22px;margin:48px 0 12px;letter-spacing:-.01em}
+h3{font-size:16px;margin-bottom:4px}
+.sub{color:var(--sub)}
+.meta{display:flex;gap:24px;flex-wrap:wrap;margin:20px 0;font-size:13px;color:var(--sub)}
+.box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;margin:12px 0}
+.issue{display:grid;grid-template-columns:44px 1fr;gap:12px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin:10px 0}
+.num{font-weight:700;font-size:18px;color:var(--sub)}
+.sev{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:999px;border:1px solid;margin-left:6px;vertical-align:2px}
+.h{color:var(--hi);border-color:#f0b7b1}.m{color:var(--md);border-color:#f0d39c}.l{color:var(--lo);border-color:#a8dcc6}
+.fix{margin-top:6px}.fix b{font-weight:500}
+.ver{font-size:12px;color:var(--sub);margin-top:4px}
+.mock{border:1px dashed #b9c3d6;border-radius:12px;padding:20px;background:#fff;margin:14px 0}
+.mlabel{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);font-weight:500;margin-bottom:12px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ba>div{border:1px solid var(--line);border-radius:8px;padding:14px}
+.ba small{font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:.05em}
+.hero-h{font-size:22px;font-weight:700;line-height:1.2;margin:6px 0}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tier{border:1px solid var(--line);border-radius:8px;padding:14px}
+.tier.rec{border:2px solid var(--acc)}
+.tp{font-size:24px;font-weight:700}.tp span{font-size:13px;font-weight:400;color:var(--sub)}
+.save{font-size:12px;color:var(--lo)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:12px}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font:500 13px Roboto;cursor:pointer}
+.seg button.on{background:var(--ink);color:#fff}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.chips button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:6px 10px;font:400 13px Roboto;cursor:pointer}
+.chips button.on{border-color:var(--acc);color:var(--acc);font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:8px;border-bottom:1px solid var(--line);text-align:center}
+th:first-child,td:first-child{text-align:left}
+.cta{display:inline-block;background:var(--acc);color:#fff;border-radius:6px;padding:8px 12px;font-size:13px;font-weight:500;margin-top:10px}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--sub)}
+@media(max-width:700px){.ba,.tiers{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="sub">Steadyhand · Unsolicited UX teardown · Sample of our $490 Audit Sprint format</p>
+<h1>Plausible Analytics: where the homepage and pricing make buyers work too hard</h1>
+<div class="meta"><span>Scope: homepage → pricing (public pages only)</span><span>Reviewed: 23 Nov 2026</span><span>Method: heuristic review + buyer-journey walkthrough</span></div>
+<div class="box">
+<b>Summary.</b> Plausible has an unusually strong product story: 22k paying subscribers, named customers like Stripe and Mozilla, a clear privacy position. The page is mostly persuasive. The friction sits in two places. First, the positioning is defined against Google Analytics instead of the buyer's own goal. Second, the pricing block asks visitors to work out yearly cost, traffic tier and feature differences for themselves. Those are the moments where a trial-ready visitor hesitates. Below are 10 findings ranked by expected impact on trial starts, with redesigned concepts for the top 3.
+<p class="ver" style="margin-top:10px">Not affiliated with Plausible. All observations come from the public site as of the review date. Items marked “verify visually” come from the page structure and should be confirmed in a live browser at desktop and mobile widths before this teardown is shared.</p>
+</div>
+
+<h2>Findings, ranked by impact</h2>
+
+<div class="issue"><div class="num">01</div><div><h3>Yearly price is hidden behind the toggle<span class="sev h">High</span></h3>
+<p>The pricing block advertises “2 months free” on yearly billing but shows only monthly figures, so a buyer comparing annual budgets has to calculate the yearly cost themselves. The discount is mentioned but never shown.</p>
+<p class="fix"><b>Fix:</b> Show the effective monthly price and the annual total together when Yearly is selected (e.g. “$7.50/mo · $90 billed yearly · save $18”). See Concept B.</p><p class="ver">Verify visually: whether the yearly values render client-side after the toggle.</p></div></div>
+
+<div class="issue"><div class="num">02</div><div><h3>The traffic slider doesn't explain how volume changes price<span class="sev h">High</span></h3>
+<p>Prices depend on monthly pageviews, but the slider scale and how the price responds aren't explicit. Most visitors don't know their pageview count, so the number they most need to choose a plan is the one they're least able to supply.</p>
+<p class="fix"><b>Fix:</b> Replace the continuous slider with labelled stops (10k · 100k · 200k · 500k · 1M · 10M+) and a helper line: “Not sure? Most blogs and early SaaS sites start under 100k.” See Concept B.</p><p class="ver">Verify visually: slider labels as rendered.</p></div></div>
+
+<div class="issue"><div class="num">03</div><div><h3>Positioning is borrowed from a competitor<span class="sev h">High</span></h3>
+<p>The H1 “Easy to use and privacy-friendly Google Analytics alternative” defines the product by what it replaces. That works for visitors already leaving GA. It undersells Plausible to founders choosing their first analytics tool, and it puts a competitor's name in the most valuable line on the page.</p>
+<p class="fix"><b>Fix:</b> Lead with the outcome and keep the GA comparison as a supporting line. See Concept A.</p></div></div>
+
+<div class="issue"><div class="num">04</div><div><h3>Plans are described as “Everything in X, plus…”<span class="sev m">Medium</span></h3>
+<p>Each tier inherits the one below, so a buyer must hold three lists in their head to answer “does Growth include funnels?” (it doesn't, funnels start at Business).</p>
+<p class="fix"><b>Fix:</b> Add a compact comparison table under the cards with the 6–8 features that actually drive upgrades: sites, seats, funnels, revenue attribution, API, SSO.</p></div></div>
+
+<div class="issue"><div class="num">05</div><div><h3>No pricing FAQ at the decision point<span class="sev m">Medium</span></h3>
+<p>Questions that block a purchase (what happens when I exceed my traffic, can I switch plans, is VAT included, what does the trial convert to) have no answer next to the price.</p>
+<p class="fix"><b>Fix:</b> 4–6 FAQ items directly below the plans. Overage handling is the most important one.</p></div></div>
+
+<div class="issue"><div class="num">06</div><div><h3>“Easy” promise, expert vocabulary<span class="sev m">Medium</span></h3>
+<p>The page promises simplicity but uses UTM, GA4, Core Web Vitals, Stats API, managed proxy, DPA and codeless goals without explanation. That's fine for developers, but it's at odds with the “no analytics expertise needed” positioning.</p>
+<p class="fix"><b>Fix:</b> Keep the terms, but add one plain-language sub-line per feature (e.g. “UTM tracking: see which campaign each visitor came from”).</p></div></div>
+
+<div class="issue"><div class="num">07</div><div><h3>Strong claims without proof links<span class="sev m">Medium</span></h3>
+<p>“54x smaller script” and the CO₂ savings figure are compelling but carry no source on the page. Technical buyers tend to discount claims that don't link to a measurement.</p>
+<p class="fix"><b>Fix:</b> Link each figure to its methodology (a blog post or a live script-size comparison).</p></div></div>
+
+<div class="issue"><div class="num">08</div><div><h3>Social-proof metric that means little to buyers<span class="sev l">Low</span></h3>
+<p>“332B events stored” is impressive to the team but abstract to a visitor. “22k paying subscribers” and “99.99% uptime” do the persuasive work.</p>
+<p class="fix"><b>Fix:</b> Swap it for a buyer-relevant stat (median setup time, or sites tracked).</p></div></div>
+
+<div class="issue"><div class="num">09</div><div><h3>“Custom” label on paid tiers<span class="sev l">Low</span></h3>
+<p>“Custom” appears near paid plans as well as Enterprise, which blurs which plans are self-serve.</p>
+<p class="fix"><b>Fix:</b> Reserve “Custom” for Enterprise only, and give Enterprise a starting threshold (“from 10M pageviews or 10+ sites”).</p><p class="ver">Verify visually.</p></div></div>
+
+<div class="issue"><div class="num">10</div><div><h3>Repeated value pillars dilute the scroll<span class="sev l">Low</span></h3>
+<p>Simple, lightweight, private, open source and EU are each restated in the hero, the feature grid, the “ditch GA” section and the footer. The page gets longer without getting more convincing.</p>
+<p class="fix"><b>Fix:</b> State each pillar once, at its strongest. Merge the “ditch GA” section into the feature grid.</p></div></div>
+
+<h2>Concepts for the top 3 fixes</h2>
+
+<div class="mock"><div class="mlabel">Concept A — Hero positioning (Finding 03)</div>
+<div class="ba">
+<div><small>Current</small><div class="hero-h">Easy to use and privacy-friendly Google Analytics alternative</div><p class="sub" style="font-size:13px">Plausible is powerful, lightweight analytics. No cookies, just insights.</p></div>
+<div><small>Proposed</small><div class="hero-h">See what's working on your site in one screen, without cookie banners.</div><p class="sub" style="font-size:13px">Lightweight, privacy-first analytics trusted by 22,000 paying teams. Switching from Google Analytics? Import your history in minutes.</p><span class="cta">Start free 30-day trial</span></div>
+</div></div>
+
+<div class="mock"><div class="mlabel">Concept B — Pricing that answers “what will I pay?” (Findings 01, 02, 09) · interactive</div>
+<div class="seg"><button data-b="m">Monthly</button><button data-b="y" class="on">Yearly · 2 months free</button></div>
+<div class="chips" id="vol"></div>
+<p class="sub" style="font-size:13px;margin:-6px 0 12px">Not sure of your traffic? Most blogs and early SaaS sites start under 100k pageviews a month.</p>
+<div class="tiers" id="tiers"></div>
+<p class="ver" style="margin-top:10px">Figures use Plausible's listed entry prices at 10k pageviews ($9 / $14 / $19). Higher-volume prices are illustrative multipliers for the concept only, not Plausible's actual rates.</p>
+</div>
+
+<div class="mock"><div class="mlabel">Concept C — Decision table under the cards (Finding 04)</div>
+<table><tr><th></th><th>Starter</th><th>Growth</th><th>Business</th></tr>
+<tr><td>Sites / team members</td><td>1 / 1</td><td>3 / 3</td><td>10 / 10</td></tr>
+<tr><td>Goals, custom events, GA import</td><td>✓</td><td>✓</td><td>✓</td></tr>
+<tr><td>Shared links & embedded dashboards</td><td>—</td><td>✓</td><td>✓</td></tr>
+<tr><td>Funnels & user journeys</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>Ecommerce revenue attribution</td><td>—</td><td>—</td><td>✓</td></tr>
+<tr><td>Stats API</td><td>—</td><td>—</td><td>600 req/hr</td></tr>
+</table></div>
+
+<h2>Expected effect</h2>
+<div class="box">Findings 01–03 sit on the path every trial starter takes, so they're the cheapest place to test. Suggested order: run Concept B as an A/B test against the current pricing block (primary metric: trial starts per pricing-section view), then test the hero copy. We don't publish uplift percentages in advance. The audit tells you where to test, and your data tells you how much it moved.</div>
+
+<footer>Prepared by Steadyhand, senior product design for SaaS teams. This is a sample of the $490 UX Audit Sprint. A paid audit adds one logged-in core journey (signup → first value), annotated screenshots and Figma files for the top 3 fixes.</footer>
+</div>
+<script>
+const base={Starter:9,Growth:14,Business:19};
+const vols=[["10k",1],["100k",1.6],["200k",2.2],["500k",3.4],["1M",5],["10M+",null]];
+let bill="y",vi=0;
+const vb=document.getElementById('vol');
+vols.forEach((v,i)=>{const b=document.createElement('button');b.textContent=v[0];b.onclick=()=>{vi=i;render()};vb.appendChild(b)});
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{bill=b.dataset.b;render()});
+function render(){
+ document.querySelectorAll('.seg button').forEach(b=>b.classList.toggle('on',b.dataset.b===bill));
+ [...vb.children].forEach((b,i)=>b.classList.toggle('on',i===vi));
+ const m=vols[vi][1],t=document.getElementById('tiers');
+ if(m===null){t.innerHTML='<div class="tier" style="grid-column:1/-1"><b>10M+ pageviews</b><p class="sub">Enterprise pricing — talk to us for a quote.</p><span class="cta">Contact sales</span></div>';return}
+ t.innerHTML=Object.entries(base).map(([n,p])=>{const mo=Math.round(p*m);const yr=mo*10;
+ const line=bill==='y'?`<div class="tp">$${(yr/12).toFixed(2)}<span>/mo</span></div><div class="save">$${yr} billed yearly · save $${mo*2}</div>`:`<div class="tp">$${mo}<span>/mo</span></div><div class="sub" style="font-size:12px">billed monthly</div>`;
+ return `<div class="tier ${n==='Growth'?'rec':''}"><b>${n}</b>${n==='Growth'?' <span class="sub" style="font-size:12px">· most teams</span>':''}${line}<span class="cta">Start free trial</span></div>`}).join('');
+}
+render();
+</script>
+</body>
+</html>
